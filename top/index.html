@@ -57,18 +57,18 @@
   };
 </script>
 
-  <meta name="description" content="懒">
+  <meta name="description" content="var APP_ID = &quot;NJ13lpONvuhUlLCfCporbKfK-MdYXbMMI&quot; ;  //输入个人LeanCloud账号AppID   var APP_KEY = &quot;hopDcIReR76a4WyfbbHrIAT8&quot; ;  //输入个人LeanCloud账号AppKey   AV.init({     appId: APP_ID,     appKey: APP_KE">
 <meta name="keywords" content="Phs,考研">
 <meta property="og:type" content="website">
-<meta property="og:title" content="top">
+<meta property="og:title" content="热门文章Top 10">
 <meta property="og:url" content="http://yoursite.com/child/top/index.html">
 <meta property="og:site_name" content="PhsBlog">
-<meta property="og:description" content="懒">
+<meta property="og:description" content="var APP_ID = &quot;NJ13lpONvuhUlLCfCporbKfK-MdYXbMMI&quot; ;  //输入个人LeanCloud账号AppID   var APP_KEY = &quot;hopDcIReR76a4WyfbbHrIAT8&quot; ;  //输入个人LeanCloud账号AppKey   AV.init({     appId: APP_ID,     appKey: APP_KE">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-31T13:20:56.828Z">
+<meta property="og:updated_time" content="2019-08-31T14:15:19.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="top">
-<meta name="twitter:description" content="懒">
+<meta name="twitter:title" content="热门文章Top 10">
+<meta name="twitter:description" content="var APP_ID = &quot;NJ13lpONvuhUlLCfCporbKfK-MdYXbMMI&quot; ;  //输入个人LeanCloud账号AppID   var APP_KEY = &quot;hopDcIReR76a4WyfbbHrIAT8&quot; ;  //输入个人LeanCloud账号AppKey   AV.init({     appId: APP_ID,     appKey: APP_KE">
   <link rel="canonical" href="http://yoursite.com/child/top/">
 
 
@@ -83,7 +83,7 @@
   };
 </script>
 
-  <title>top | PhsBlog</title>
+  <title>热门文章Top 10 | PhsBlog</title>
   
 
 
@@ -189,7 +189,7 @@
       
     
 
-    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">0</span></a>
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">3</span></a>
 
   </li>
       
@@ -202,7 +202,7 @@
       
     
 
-    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">0</span></a>
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">2</span></a>
 
   </li>
       
@@ -215,7 +215,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">1</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">2</span></a>
 
   </li>
       
@@ -306,7 +306,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">top
+<h1 class="post-title" itemprop="name headline">热门文章Top 10
 
 </h1>
 
@@ -322,7 +322,42 @@
       
       <div class="post-body">
         
-          
+          <div id="post-rank"></div>
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.10.0/dist/av-min.js"></script>
+<script>
+  var APP_ID = "NJ13lpONvuhUlLCfCporbKfK-MdYXbMMI" ;  //输入个人LeanCloud账号AppID
+  var APP_KEY = "hopDcIReR76a4WyfbbHrIAT8" ;  //输入个人LeanCloud账号AppKey
+  AV.init({
+    appId: APP_ID,
+    appKey: APP_KEY
+  });
+
+  var query = new AV.Query('Counter');//表名
+  query.descending('time'); //结果按阅读次数降序排序
+  query.limit(10);  //最终只返回10条结果
+  query.find().then( response => {
+    var content = response.reduce( (accum, {attributes}) => {
+      accum += `<p><div class="prefix">热度 ${attributes.time} ℃</div><div><a href="${attributes.url}">${attributes.title}</a></div></p>`
+      return accum;
+    },"")
+    document.querySelector("#post-rank").innerHTML = content;
+  })
+  .catch( error => {
+    console.log(error);
+  });
+</script>
+
+<style type="text/css">
+  #post-rank {
+    text-align: center;
+  }
+  #post-rank .prefix {
+    color: #ff4d4f;
+  }
+</style>
+
+
         
       </div>
       
@@ -339,9 +374,6 @@
 
           </div>
           
-    
-    <div class="comments" id="comments"></div>
-  
 
         </div>
           
@@ -374,9 +406,41 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+        
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+        
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+        
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+        
       </div>
     
   </nav>
@@ -445,12 +509,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数"></span>
+    <span title="站点总字数">0k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长"></span>
+    <span title="站点阅读时长">1 分钟</span>
 </div>
 
         
